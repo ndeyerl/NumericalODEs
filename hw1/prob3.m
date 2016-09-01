@@ -5,7 +5,7 @@
 % % This script finds the root of a nonlinear system of equations given by 
 % % homework 1.  It uses a relative tolerance of 10^06 and an absolute tolerance
 % % of 10^-10, with an initial guess of (1,2).
-% % % test change
+% % 
 %functions f1 and f2
 f1 = @(x,y) x.^2 + y.^2 -4;
 f2 = @(x,y) x*y - 1;
