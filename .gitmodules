@@ -1,0 +1,3 @@
+[submodule "matrix"]
+	path = matrix
+	url = https://ndeyerl@bitbucket.org/drreynolds/matrix.git
