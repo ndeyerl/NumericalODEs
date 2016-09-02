@@ -5,6 +5,7 @@
 % % This script finds the roots of the lagrange interpolant of the points given
 % % by problem 2 of homework 1.  It's a script which uses Newton's method to find
 % % the roots of this particular function.
+
 clear;
 % lagrange interpolant of 4 data points
 f = @(x) (-4/5 + 4/495 + 8/9)*x.^3 + (-28/5+8/495 + 52/9)*x.^2 +...
