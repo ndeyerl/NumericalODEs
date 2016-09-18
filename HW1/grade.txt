@@ -1,0 +1,24 @@
+Notes:
+
+* problem 2 has the wrong reported roots
+
+* problem 3 reports the wrong tolerances (10e-10 vs 1e-10, 10e-6 vs
+  1e-6 -- these are both off by a factor of 10); otherwise the results
+  look good and converge to the correct root.
+
+
+-----
+
+Comments (for details see sticky notes in files.pdf):
+
+* prob2.m -- my guess as to the error is that you have the wrong f(x)
+  and f'(x) functions.  Since you determined these on paper and
+  simplified to get the form that you put here I cannot see where the
+  error was made.
+
+  [-3]
+
+* prob3.m -- indeed your tolerances are both off by a factor of 10.
+  Otherwise this code looks good.
+
+  [-2]
