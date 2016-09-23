@@ -68,14 +68,15 @@ int main() {
     // problem 1:
     vector<double> y = y0_1;
     tcur = t0;
-    double maxerr = 0.0;
+    double maxabserr = 0.0;
+    double maxrelerr = 0.0;
     double relerr = 0.0;
     double abserr = 0.0;
 
     cout << "\nRunning problem 1 with rtol = " << rtol[ir] << " atol = " << atol << ":\n";
 
     //   loop over output step sizes: call solver and output error
-    while (tcur < 0.99999*Tf) {
+    while (tcur < 0.9999*Tf) {
       
       // set the time interval for this solve
       vector<double> tspan = {tcur, std::min(tcur + dtout, Tf)};
@@ -83,16 +84,20 @@ int main() {
       // call the solver, update current time
       vector<double> tvals = FE1.Evolve(tspan, y);
       tcur = tvals.back();   // last entry in tvals
-      cout << "1" << endl;
       // compute the error at tcur, output to screen and accumulate maximum
       vector<double> yerr = y - ytrue1(tcur);
-      double err = InfNorm(yerr);
-      maxerr = std::max(maxerr, err);
+      double abserr = InfNorm(yerr);
+      double relerr = InfNorm(yerr)/InfNorm(y);
+      maxabserr = std::max(maxabserr, abserr);
+      maxrelerr = std::max(maxrelerr, relerr);
       cout << "  y(" << tcur << ") = " << y[0]
 	   << "  \t||abs. error|| = " << abserr << "  \t||rel. error|| = " << relerr
+	   //<< "  \t||error|| = " << err
 	   << endl;
     }
-    cout << "Max error = " << maxerr << endl;
+    cout << "Number of calls to f = " << FE1.fcalls << std::endl;
+    cout << "Max absolute error = " << maxabserr 
+         << "  Max relative error = " << maxrelerr << endl;
 
   }
   

@@ -27,6 +27,8 @@ class AdaptEuler {
 
  public:
 
+  int fcalls = 0;
+
   // constructor (sets RHS function pointer, copies y for local data)
   AdaptEuler(RHSFunction& frhs_, double rtol, double atol, std::vector<double>& y) {
     frhs = &frhs_;
