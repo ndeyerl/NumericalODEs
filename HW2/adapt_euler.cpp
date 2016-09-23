@@ -80,17 +80,17 @@ std::vector<double> AdaptEuler::Evolve(std::vector<double> tspan, std::vector<do
     
     //update check
     if(err <= r*Norm(y) + a){
-		y = 2.0*yh2 - yh; //richardson euler formula
-		counter = counter + 1; //update counter
-        times.push_back(th); //update current time, store in output array
-        fcalls += 2; //update number of calls to f
+      y = 2.0*yh2 - yh; //richardson euler formula
+	  counter = counter + 1; //update counter
+      times.push_back(th); //update current time, store in output array
+      fcalls += 2; //update number of calls to f
 	} else {
-		h = h*((r*Norm(y) + a)/err); //reduce step size + try again
-		fcalls += 2; //update number of calls to f
+      h = h*((r*Norm(y) + a)/err); //reduce step size + try again
+	  fcalls += 2; //update number of calls to f
 	}
     
     if(counter >= pow(10,6)){ //if the number of time steps exceeds 10^6
-		break;                // exit the solver
+	  break;                // exit the solver
 	}
 
   }

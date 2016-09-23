@@ -95,6 +95,7 @@ int main() {
 	   << endl;
     }
     cout << "Max error = " << maxerr << endl;
+    // compute convergence + print
     if(ih > 0){
       convg = (log(maxerr1[ih])-log(maxerr1[ih-1]))/(log(h[ih])-log(h[ih-1])); //soln of err = h^p for p
       cout << "The order of convergence is = " << convg << endl;
