@@ -89,8 +89,8 @@ int main() {
       double relerr = InfNorm(yerr)/InfNorm(y); //rel error = abs err / magnitude of soln
       maxabserr = std::max(maxabserr, abserr); //keep the maximal error values
       maxrelerr = std::max(maxrelerr, relerr);
+      
       // soln + error print out
-      cout<< " previous t val = " << tvals[tvals.size()-2] << endl;
       cout << "  y(" << tcur << ") = " << y[0]
 	   << "  \t||abs. error|| = " << abserr << "  \t||rel. error|| = " << relerr
 	   << endl;
