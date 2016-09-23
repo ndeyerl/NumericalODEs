@@ -36,9 +36,8 @@ std::vector<double> AdaptEuler::Evolve(std::vector<double> tspan, std::vector<do
 
   // figure out how many time steps
   long int N = pow(10,6);
-  double h = (tspan[1]-tspan[0])/(tspan[1]*8);
-//  double h = .001;
-  double err = 0.0;
+  double h = (tspan[1]-tspan[0])/(tspan[1]*8); //init h should be func of tspan
+  double err = 0.0;                            // in case tspan is v. small
   double relerr, abserr;
   double th, th2;
   int counter = 0; //counter for index of time steps
@@ -48,6 +47,11 @@ std::vector<double> AdaptEuler::Evolve(std::vector<double> tspan, std::vector<do
   // iterate over time steps
   while (times[counter]<0.99999*tspan[1]) {
 	
+    // last step only: update h to stop directly at final time
+    if (times[counter]+h>0.99999*tspan[1]) {
+      h = tspan[1]-times[counter];
+    }
+    	
 	//set up times for evals (at half and full step) 
     th = times[counter] + h;
     th2 = times[counter] + h/2.0;
@@ -74,7 +78,7 @@ std::vector<double> AdaptEuler::Evolve(std::vector<double> tspan, std::vector<do
     //richardson error estimate
     err = Norm(2.0*yh2 - 2.0*yh);
     
-    
+    //update check
     if(err <= r*Norm(y) + a){
 		y = 2.0*yh2 - yh; //richardson euler formula
 		counter = counter + 1; //update counter
