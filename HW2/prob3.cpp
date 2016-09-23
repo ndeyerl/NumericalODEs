@@ -20,6 +20,7 @@ using namespace std;
 
 
 // Problem 1:  y' = -e^(-t)*y, y(0)=1
+// same as prob1.cpp
 //    ODE RHS function class -- instantiates a RHSFunction
 class RHS1: public RHSFunction {
 public:
@@ -50,14 +51,11 @@ int main() {
   double t0 = 0.0;
   double Tf = 5.0; //problem specified t in [0,5]
   double tcur = t0;
-  double dtout = 1.0;//problem specified output of soln and abs err every
+  double dtout = 1.0;//problem specified output of soln and errors every
                      // 1 unit of time
   double diff;
   // create ODE RHS function objects
   RHS1 f1;
-  vector<double> maxrel (rtol.size(),0.0); //preallocate space to save all maxerrors
-                                        // for each step size h, populate w/ 0's
-  vector<double> maxabs (rtol.size(),0.0);
 
   // loop over time step sizes
   for (int ir=0; ir<rtol.size(); ir++) {
@@ -67,12 +65,12 @@ int main() {
   
     // problem 1:
     vector<double> y = y0_1;
-    tcur = t0;
-    double maxabserr = 0.0;
+    tcur = t0; //initialize time
+    double maxabserr = 0.0; //initialize abs and rel errors (max and current)
     double maxrelerr = 0.0;
     double relerr = 0.0;
     double abserr = 0.0;
-
+    int timeind = 0; //counter for number of timesteps
     cout << "\nRunning problem 1 with rtol = " << rtol[ir] << " atol = " << atol << ":\n";
 
     //   loop over output step sizes: call solver and output error
@@ -84,18 +82,22 @@ int main() {
       // call the solver, update current time
       vector<double> tvals = FE1.Evolve(tspan, y);
       tcur = tvals.back();   // last entry in tvals
+      
       // compute the error at tcur, output to screen and accumulate maximum
       vector<double> yerr = y - ytrue1(tcur);
-      double abserr = InfNorm(yerr);
-      double relerr = InfNorm(yerr)/InfNorm(y);
-      maxabserr = std::max(maxabserr, abserr);
+      double abserr = InfNorm(yerr); //abs error = norm of error between num + true soln
+      double relerr = InfNorm(yerr)/InfNorm(y); //rel error = abs err / magnitude of soln
+      maxabserr = std::max(maxabserr, abserr); //keep the maximal error values
       maxrelerr = std::max(maxrelerr, relerr);
+      // soln + error print out
+      cout<< " previous t val = " << tvals[tvals.size()-2] << endl;
       cout << "  y(" << tcur << ") = " << y[0]
 	   << "  \t||abs. error|| = " << abserr << "  \t||rel. error|| = " << relerr
-	   //<< "  \t||error|| = " << err
 	   << endl;
+      timeind += tvals.size(); //remember number of time steps
     }
     cout << "Number of calls to f = " << FE1.fcalls << std::endl;
+    cout << "Total Number of time steps = " << timeind << std::endl;
     cout << "Max absolute error = " << maxabserr 
          << "  Max relative error = " << maxrelerr << endl;
 

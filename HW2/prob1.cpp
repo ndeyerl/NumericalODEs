@@ -85,9 +85,11 @@ int main() {
 
       // compute the error at tcur, output to screen and accumulate maximum
       vector<double> yerr = y - ytrue1(tcur);
-      double err = InfNorm(yerr);
-      maxerr1[ih] = err;
-      maxerr = std::max(maxerr, err);
+      double err = InfNorm(yerr); //absolute error = diff between num + true soln
+                                  // (InfNorm -> gives maximal entry)
+      maxerr1[ih] = err; //keep the errors to calculate convergence
+      maxerr = std::max(maxerr, err); //keep maximal error value
+      // soln + error print out
       cout << "  y(" << tcur << ") = " << y[0]
 	   << "  \t||error|| = " << err
 	   << endl;

@@ -27,12 +27,13 @@ class AdaptEuler {
 
  public:
 
-  int fcalls = 0;
+  int fcalls = 0; //make calls to f part of the class so we can call it from
+                  // the driver
 
   // constructor (sets RHS function pointer, copies y for local data)
   AdaptEuler(RHSFunction& frhs_, double rtol, double atol, std::vector<double>& y) {
     frhs = &frhs_;
-    r = rtol;
+    r = rtol; //from .cpp, can call rtol and atol from r and a
     a = atol;
     f = y;
   };
