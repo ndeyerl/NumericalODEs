@@ -1,0 +1,6 @@
+* executables should **not** be added to a Git *source code*
+  repository, since those executables are unique to your computer, and
+  cannot be run on other computers.
+
+  -2
+
