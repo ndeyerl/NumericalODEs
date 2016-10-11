@@ -1,0 +1,34 @@
+Compilation:  
+  
+* compiles fine
+
+  
+Running prob1.exe:  
+  
+* your error values are perfect, but your orders of convergence seem
+  off.  I'll investigate when I look at your code.
+
+Running prob3.exe:  
+  
+* your errors are within tolernaces, but your codes seem to use an
+  excessive number of internal time steps.  Again, I'll investigate
+  when looking at your files.
+
+Building test_adapt_euler.exe:  
+  
+* builds fine
+
+Running test_adapt_euler.exe:
+
+* I get many warnings that your code is returning the solution at a
+  time other than tspan[1].  I'll investigate in your codes directly.
+
+* Also, your code takes WAY too long to finish the tests, so I killed
+  it after 15 minutes.  Again, I'll have to investigate when I look at
+  your codes directly.
+
+
+Specific comments added to each file; point deductions below:
+
+-12
+  
