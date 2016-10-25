@@ -1,0 +1,55 @@
+General notes:
+  
+* I see no files that appear to contain the new generalized
+  trapezoidal method (by name, at least).  I'm guessing that this is
+  inside trapezoidal.hpp and trapezoidal.cpp.  In general, it's best
+  practice to create *new* files to contain new solvers.
+  
+
+Compilation:  
+  
+* 1 warning message during compilation of prob2.cpp:
+
+      prob2.cpp:36:3: warning: control reaches end of non-void function [-Wreturn-type]
+        }  
+        ^
+      1 warning generated
+
+  this happens because your function has return type 'int' but you do not
+  'return 0' at the end.  It's best to remove all warning messages
+  before "finishing" any codes.
+
+  Otherwise, everything compiled perfectly.
+
+
+Running prob2.exe:  
+  
+* perfect
+
+  
+Running prob5.exe:  
+  
+* I did NOT want the solution and error to be output every dtout; I
+  only wanted the max norm error in time to be output at the end.
+  That said, my instructions seem a bit unclear, so I won't deduct
+  points for the extraneous output.
+
+* your convergence rates and error values are perfect.
+
+
+Building test_gen_trap.exe:  
+
+* you did NOT follow the specific instructions on naming your new
+  class, so my test code does not compile.  If I modify my testing
+  code to use your [incorrectly named] class, it compiles fine.
+
+  
+Running test_gen_trap.exe:  
+  
+* perfect
+
+  
+Specific comments added to each file; point deductions below:  
+  
+* problem 2: 15/15
+* problem 5: 15/17  
