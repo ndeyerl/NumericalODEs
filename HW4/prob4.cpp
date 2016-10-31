@@ -64,7 +64,7 @@ int main() {
     double maxrelerr = 0.0;
     long int totsteps = 0;
     long int totfails = 0;
-    cout << "\nRunning RKF45 with rtol = " << ARKF.rtol
+    cout << "\nRunning Adaptive RKF45 with rtol = " << ARKF.rtol
          << " and atol = " << atols[ir] << endl;
 
     //   loop over output step sizes: call solver and output error
