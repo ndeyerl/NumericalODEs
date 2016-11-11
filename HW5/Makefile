@@ -11,9 +11,9 @@ CXXFLAGS = -O --std=c++11
 HEADERS = lmm.hpp matrix.hpp trapezoidal.hpp newton.hpp resid.hpp rhs.hpp
 
 # executable targets
-all : prob4.exe
+all : prob3.exe
 
-prob4.exe : prob4.o trapezoidal.o lmm.o newton.o matrix.o
+prob3.exe : prob3.o trapezoidal.o lmm.o newton.o matrix.o
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 %.o : %.cpp $(HEADERS)
