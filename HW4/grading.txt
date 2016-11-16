@@ -1,0 +1,41 @@
+General notes:
+  
+  
+Compilation:  
+  
+* both prob2.exe and prob4.exe build perfectly
+
+  
+Running prob2.exe:  
+  
+* perfect
+
+  
+Running prob4.exe:  
+  
+* In the instructions:  "At each output time, compute the relative
+  error in the solution (but do not display)" -- you display all of
+  these to the screen.
+
+* other than the above error, your results look good.
+
+
+Building test_hw4.exe:  
+  
+* perfect  
+
+
+Running test_hw4.exe:  
+  
+* your results for both AB3 and AdaptRKF look great.  However, the
+  time step and failure data that you report for your AdaptRKF look
+  way too small.  Perhaps your counters do not store the "total"
+  numbers of these quantities, and only the amount from the
+  most-recent call?
+  
+
+Specific comments added to each file; point deductions below:  
+  
+* problem 2:  23/25 (includes deduction for Makefile)
+* problem 4:  27/35
+  
