@@ -1,0 +1,24 @@
+Compilation:  
+  
+* perfect
+
+  
+Running prob3.exe:  
+  
+* perfect
+
+  
+Building test_hw5.exe:  
+  
+* perfect
+
+  
+Running test_hw5.exe:  
+  
+* perfect
+  
+  
+Specific comments added to each file; point deductions below:  
+  
+* problem 3: 18/20
+  
