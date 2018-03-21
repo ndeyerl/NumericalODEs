@@ -1,0 +1,2 @@
+Code for numerical ordinary differential equations algorithms from MATH 6321 at SMU (Fall 2016 with Dan Reynolds).  Majority of code is in C++, except for final project which is in Matlab. Coursework involved implementing numerical ordinary differential equation algorithms for solving and error analysis. 
+
